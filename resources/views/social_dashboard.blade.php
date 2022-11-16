@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - Social Dashboard</title>
-  <link rel="stylesheet" href="{{asset('dashboard/style1.css')}}">
+  <link rel="stylesheet" href="{{asset('dashboard1/style1.css')}}">
 
 </head>
 <body>
