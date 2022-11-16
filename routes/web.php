@@ -38,3 +38,5 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/admin', 'App\Http\Controllers\SiteController@dashboard');
+
+Route::get('/homework', 'App\Http\Controllers\HomeworkController@social_dashboard');

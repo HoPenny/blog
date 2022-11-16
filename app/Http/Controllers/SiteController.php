@@ -13,3 +13,12 @@ class SiteController extends Controller
         return view('dashboard');
     }
 }
+
+class HomeworkController extends Controller
+{
+
+    public function social_dashboard()
+    {
+        return view('social_dashboard');
+    }
+}
