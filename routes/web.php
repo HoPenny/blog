@@ -31,6 +31,7 @@ Route::namespace ('App\Http\Controllers')->group(function () {
     Route::get('/users/{id}/sex/{sex}', function ($id, $sex) {
         return "User $id, Sex $sex"; //多參數
     });
+
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -40,3 +41,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/admin', 'App\Http\Controllers\SiteController@dashboard');
 
 Route::get('/homework', 'App\Http\Controllers\HomeworkController@social_dashboard');
+
+Route::get('/demo', 'App\Http\Controllers\TestController@demo');
+
+// Route::apiResource('posts', 'App\Http\Controllers\Api\PostController'); //自動生成對應5個function
