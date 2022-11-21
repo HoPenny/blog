@@ -45,3 +45,6 @@ Route::get('/homework', 'App\Http\Controllers\HomeworkController@social_dashboar
 Route::get('/demo', 'App\Http\Controllers\TestController@demo');
 
 // Route::apiResource('posts', 'App\Http\Controllers\Api\PostController'); //自動生成對應5個function
+
+Route::get('/nav', 'App\Http\Controllers\HomeworkController@navbar');
+Route::get('/grid', 'App\Http\Controllers\HomeworkController@grid_layout');

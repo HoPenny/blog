@@ -9,4 +9,12 @@ class HomeworkController extends Controller
     {
         return view('social_dashboard');
     }
+    public function navbar()
+    {
+        return view('navbar');
+    }
+    public function grid_layout()
+    {
+        return view('Layouts.grid_layout');
+    }
 }
