@@ -46,5 +46,7 @@ Route::get('/demo', 'App\Http\Controllers\TestController@demo');
 
 // Route::apiResource('posts', 'App\Http\Controllers\Api\PostController'); //自動生成對應5個function
 
-Route::get('/nav', 'App\Http\Controllers\HomeworkController@navbar');
-Route::get('/grid', 'App\Http\Controllers\HomeworkController@grid_layout');
+Route::get('/nav1', 'App\Http\Controllers\HomeworkController@navbar');
+// Route::get('/grid', 'App\Http\Controllers\HomeworkController@grid_layout');
+
+Route::get('/nav2', 'App\Http\Controllers\NavController@nav');

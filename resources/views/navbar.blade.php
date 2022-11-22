@@ -11,7 +11,7 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'><link rel="stylesheet" href="{{asset('navbar/style.css')}}">
 </head>
 <body>
-    <header class="navbar navbar-expand-custom navbar-mainbg" style="line-height:40px  " >
+    <header class="navbar" style="line-height:40px  width:auto " >
       <a class="navbar-brand navbar-logo"  href="#" style="text-size-adjust:auto ">Penny's Homework</a>
       <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
       <i class="fas fa-bars text-white"></i>
@@ -46,6 +46,9 @@
   <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js'></script>
   <script src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js'></script><script  src="{{asset('navbar/script.js')}}"></script>
 @endsection
+{{-- @section('ss')
+  @parent
+@parent --}}
 </body>
 </html>
 

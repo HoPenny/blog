@@ -71,22 +71,23 @@
         </div>
       </div>
   </nav>
-  <section style="width: 1300px;">
-    <link href="https://fonts.googleapis.com/css?family=Oswald:700" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link rel="stylesheet" href="{{asset('gallery/style.css')}}">
-    <div class="container" >
-    <h1 align="center" >Gallery</h1>
 
-    <div class="gallery-wrap" style="width: 1240px;">
-      <div class="item item-1"></div>
-      <div class="item item-2"></div>
-      <div class="item item-3"></div>
-      <div class="item item-4"></div>
-      <div class="item item-5"></div>
+    <section style="width: 1300px;">
+      <link href="https://fonts.googleapis.com/css?family=Oswald:700" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+      <link rel="stylesheet" href="{{asset('gallery/style.css')}}">
+      <div class="container" >
+      <h1 align="center" >Gallery</h1>
+
+      <div class="gallery-wrap" style="width: 1240px;">
+        <div class="item item-1"></div>
+        <div class="item item-2"></div>
+        <div class="item item-3"></div>
+        <div class="item item-4"></div>
+        <div class="item item-5"></div>
+      </div>
     </div>
-  </div>
-  </section>
+    </section>
 
 </body>
 
