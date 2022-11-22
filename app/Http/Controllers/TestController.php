@@ -86,12 +86,12 @@ class testcontroller extends Controller
         //with方法:
         // return view('test.demo')->with(['name' => 'Penny', 'age' => '<b>18</b>']);
         //view函式:
-        // $data['name'] = 'Penny';
-        // $data['age'] = '<b>19</b >';
-        // return view('test.demo', $data);
+        $data['name'] = 'Penny';
+        $data['age'] = '<b>19</b >';
+        return view('test.demo', $data);
         //compact方法:
-        $name = 'Penny';
-        $age = '<b>20</b>';
-        return view('test.demo', compact('name', 'age'));
+        // $name = 'Penny';
+        // $age = '<b>20</b>';
+        // return view('test.demo', compact('name', 'age'));
     }
 }

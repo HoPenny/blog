@@ -1,7 +1,6 @@
-use illuminate\Support\Arr;
-use illuminate\Support\Collection;
+
 @extends('Layouts.nav')
-@section('contact')
+{{-- @section('contact')
 FOR寫法:
  <table  border="1"  style="align:center border-collapse: collapse " >
   {{-- <tr>
@@ -12,7 +11,7 @@ FOR寫法:
     <td data-url="http://1.test">1</td>
     <td data-url="http://2.test">2</td>
   </tr>
-</table>--}}
+</table>
 
   @for( $i = 0 ; $i<10 ; $i++ )
       <tr>
@@ -24,34 +23,28 @@ FOR寫法:
       </tr>
   @endfor
   </table>
-  <?php
-  $arr = [1,2,3,4,5,6,7,8,9];
-  ?>
-  FOREACH寫法:
-   <table border="1"  style="align:center border-collapse: collapse">
-      @foreach ($arr as $item)
-        <tr>
-        @foreach ($arr as $item1)
-            <td>
-               &emsp;{{$item}} * {{$item1}} = {{$item * $item1}}&emsp;
-            </td>
-       @endforeach
-      </tr>
-      @endforeach
-   </table>
-
-@endsection
+@endsection --}}
 @section('image')
+
    <style >
       img {
         border: 1px solid #ddd;
         border-radius: 4px;
-        /* padding: 25px; */
-        width: 800px;
+         padding: 25px;
+        width: 600px;
       }
    </style>
-   <div style="width:500px;height:400px;border:1px solid;position:relative;">
-      <img src="images\istockphoto.jpg" alt="Snowflake" >
-   </div>
+   @php
+      $pics[] = $p1;
+      $pics[] = $p2;
+      $pics[] = $p3;
+   @endphp
+
+     @foreach ($pics as $item)
+      <li style="width:500px;height:400px;position:relative;">
+         <img src="images\{{$item}}.jpg" alt="Picture" >
+      </li>
+    @endforeach
+   </ul>
 @endsection
 
