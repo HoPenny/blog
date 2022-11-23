@@ -30,21 +30,24 @@ FOR寫法:
       img {
         border: 1px solid #ddd;
         border-radius: 4px;
-         padding: 25px;
-        width: 600px;
+        padding: 25px;
+        width: 500px;
+      }
+      ul {
+            /* padding: 20px; */
+          margin: 80px;
       }
    </style>
-   @php
-      $pics[] = $p1;
-      $pics[] = $p2;
-      $pics[] = $p3;
-   @endphp
-
+   <ul>
      @foreach ($pics as $item)
-      <li style="width:500px;height:400px;position:relative;">
+      @if($loop->iteration == 1 or $loop->iteration == 4)
+        <ul>
+      @endif
          <img src="images\{{$item}}.jpg" alt="Picture" >
-      </li>
-    @endforeach
+      @if($loop->iteration == 3 or $loop->iteration == 6)
+        </ul>
+      @endif
+     @endforeach
    </ul>
 @endsection
 
