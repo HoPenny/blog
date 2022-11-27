@@ -24,6 +24,7 @@ FOR寫法:
   @endfor
   </table>
 @endsection --}}
+
 @section('image')
 
    <style >
@@ -35,7 +36,7 @@ FOR寫法:
       }
       ul {
             /* padding: 20px; */
-          margin: 80px;
+          margin: auto;
       }
    </style>
    <ul>
@@ -50,4 +51,11 @@ FOR寫法:
      @endforeach
    </ul>
 @endsection
+@section('contact')
+{{$global}}
+{{-- 在AppServiceProvider.php 有做全域分享所以到哪裡都可以用 --}}
+
+    @include('include')
+@endsection
+
 

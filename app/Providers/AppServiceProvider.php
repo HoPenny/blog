@@ -23,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View()->share('global', '我的全域變數');
+        view()->composer(['test.*'], function ($view) {
+            $view->with('multi', '多視圖變數');
+        });
     }
 }
