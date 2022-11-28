@@ -64,4 +64,4 @@ Route::get('/url', function () {
     // return url()->current();
 });
 
-Route::get('/getfile', 'App\Http\Controllers\TestController@dogetFile');
+Route::post('/getfile', 'App\Http\Controllers\TestController@dogetFile');
