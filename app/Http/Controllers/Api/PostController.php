@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -23,6 +24,10 @@ class PostController extends Controller
     public function index()
     {
         return '所有文章';
+        // $data['name'] = 'Penny';
+        // $data['age'] = '<b>19</b >';
+        // return view('posts', $data);
+
     }
 
 /**
@@ -31,9 +36,23 @@ class PostController extends Controller
  * @param  \Illuminate\Http\Request  $request
  * @return \Illuminate\Http\Response
  */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        //
+
+        // $validator = Validator::make($request->all(), [
+        //     'title' => 'required | max:10',
+        //     'age' => 'required',
+        // ]);
+        // if ($validator->fails()) {
+        //     // return $validator;
+        //     return redirect('..')->withErrors($validator)->withInput();
+        // }
+        return 'ok';
+        //網址轉向用法:
+        //1.返回到index網頁
+        // return redirect(url('posts/' . .1));
+        //2. return redirect()->route('login');s
+
     }
 
 /**
@@ -56,7 +75,7 @@ class PostController extends Controller
  */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
 /**

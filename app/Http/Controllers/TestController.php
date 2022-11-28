@@ -81,8 +81,10 @@ class testcontroller extends Controller
     // {
     //     //
     // }
-    public function demo()
+    public function demo(Request $request)
     {
+
+        dd($request->x); //用動態屬性取輸入的值
         //with方法:
         // return view('test.demo')->with(['name' => 'Penny', 'age' => '<b>18</b>']);
         //view函式:
@@ -92,6 +94,21 @@ class testcontroller extends Controller
         //compact方法:
         // $name = 'Penny';
         // $age = '<b>20</b>';
-        // return view('test.demo', compact('name', 'age'));
+        return view('test.demo', compact('name', 'age'));
     }
+    public function dogetFile(Request $request)
+    {
+        //取得完整路徑檔名
+        $filenameWithExt = $request->file('pic')->getClientOriginalName();
+        //只取檔名
+        $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+        //只取副檔名
+        $extension = $request->file('pic')->getClientOriginalExtension();
+        //生成新檔名
+        $fileNameToStore = $filename.'_'.time().'.'.$extension;
+        //儲存圖片
+        $path = $request->file('pic')->storeAs('public/storage/pic',$fileNameToStore);
+        return $path;
+    }
+
 }

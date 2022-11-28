@@ -50,3 +50,18 @@ Route::get('/nav1', 'App\Http\Controllers\HomeworkController@navbar');
 // Route::get('/grid', 'App\Http\Controllers\HomeworkController@grid_layout');
 
 Route::get('/nav2', 'App\Http\Controllers\NavController@nav');
+
+// Route::apiResource('posts', 'App\Http\Controllers\Api\PostController');
+Route::post('posts', 'App\Http\Controllers\Api\PostController@store');
+
+// Route::get('/demo', function () {
+//     return route('AAdemo');
+// })->name('AAdemo'); //取別名也可以取得路徑
+
+Route::get('/url', function () {
+    // return url('posts');
+    // return action([TestController::class, 'demo']);
+    // return url()->current();
+});
+
+Route::get('/getfile', 'App\Http\Controllers\TestController@dogetFile');
