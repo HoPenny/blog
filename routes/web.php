@@ -53,7 +53,8 @@ Route::get('/nav2', 'App\Http\Controllers\NavController@nav');
 
 // Route::apiResource('posts', 'App\Http\Controllers\Api\PostController');
 Route::post('posts', 'App\Http\Controllers\Api\PostController@store');
-
+Route::post('items', 'App\Http\Controllers\Api\ItemController@store');
+// Route::get('itemsindex', 'App\Http\Controllers\Api\ItemController@index');
 // Route::get('/demo', function () {
 //     return route('AAdemo');
 // })->name('AAdemo'); //取別名也可以取得路徑
