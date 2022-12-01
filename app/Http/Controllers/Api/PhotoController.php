@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class PhotoController extends Controller
 {
+    public function create()
+      {
+          return view(posts.creat);
+      }
     /**
      * Display a listing of the resource.
      *

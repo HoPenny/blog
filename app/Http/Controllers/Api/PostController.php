@@ -51,7 +51,7 @@ class PostController extends Controller
         //網址轉向用法:
         //1.返回到index網頁
         // return redirect(url('posts/' . .1));
-        //2. return redirect()->route('login');s
+        //2. return redirect()->route('login');
 
     }
 

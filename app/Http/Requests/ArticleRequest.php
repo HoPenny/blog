@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class ArticleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,9 +13,7 @@ class PostRequest extends FormRequest
      */
     public function authorize()
     {
-        // return false;
         return true;
-
     }
 
     /**
@@ -26,16 +24,12 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required | max:10',
-            'contact' => 'required',
-            'vaccine' => 'required',
+            'subject' => 'required | max:50',
+            'desc' => 'required| max:4000',
+            'category' => 'required',
+            'pic' => 'required',
+            'sort' => 'required',
+
         ];
     }
-    // public function messages()
-    // {
-    //     return [
-    //         'title.required' => 'A title is required',
-    //         'body.required' => 'A message is required',
-    //     ];
-    // }
 }
