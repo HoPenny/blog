@@ -68,3 +68,7 @@ Route::get('/url', function () {
 });
 
 Route::post('/getfile', 'App\Http\Controllers\TestController@dogetFile');
+Route::get('/config', function () {
+    // dd(config('database.default'));
+    dd(config('database.connections.mysql.database'));
+});

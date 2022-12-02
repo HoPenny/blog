@@ -25,7 +25,7 @@ class ArticleController extends Controller
     public function create()
     {
         $datas = ['1' => '分類1', '2' => '分類2', '3' => '分類3'];
-        $data = '1';
+        $data = '2';
         return view('articles.create', compact('datas', 'data'));
 
     }

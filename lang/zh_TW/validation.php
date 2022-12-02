@@ -150,6 +150,7 @@ return [
         'tags_list' => '標籤',
         'mode' => '模式',
         'mediums' => '文章媒體',
+        'vaccine' => '疫苗注射次數',
         'subject' => '主旨',
         'desc' => '內文',
         'category' => '類別',

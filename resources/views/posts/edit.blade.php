@@ -9,11 +9,12 @@
 <body>
 
 
-<H1>我的第一個頁面</H1>
+<H1>Edit頁面</H1>
 {{-- {!! Form::open(['action'=>'App\Http\Controllers\PostController@store','method'=>'POST','files'=>true]) !!} --}}<!--指向要去的action-->
 
 {!! Form::open(['url'=>'posts','method'=>'POST','files'=>true]) !!}
   @include('posts._form')
+
 {!! Form::close() !!}
 @include('posts._error')
 
