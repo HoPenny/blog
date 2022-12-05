@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
             $table->string('subject', 50);
-            $table->string('type', 30);
+            $table->string('type', 30)->nillable();
             $table->string('url', 255)->nillable();
-            $table->integer('sort')->deault(0)->nillable();
+            $table->integer('sort')->deault(0);
             $table->timestamps();
         });
     }
