@@ -60,17 +60,18 @@ class ArticleController extends Controller
         }
 
         $article = new Article();
+        $article = Article::create($request->all());
 
-        $article->subject = $request->input('subject');
-        $article->content = $request->input('content');
-        $article->cgy_id = $request->input('cgy_id');
-        $article->enabled = $request->input('enabled');
-        $dt = new Carbon($request->enabled_at);
-        $article->enabled_at = $dt;
-        $article->sort = $request->input('sort');
-        $article->pic = $filename;
+        // $article->subject = $request->input('subject');
+        // $article->content = $request->input('content');
+        // $article->cgy_id = $request->input('cgy_id');
+        // $article->enabled = $request->input('enabled');
+        // $dt = new Carbon($request->enabled_at);
+        // $article->enabled_at = $dt;
+        // $article->sort = $request->input('sort');
+        // $article->pic = $filename;
 
-        $article->save();
+        // $article->save();
 
         // return 'ok';
 
