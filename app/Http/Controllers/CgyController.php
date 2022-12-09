@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
+use App\Models\Cgy;
 use Illuminate\Http\Request;
-use App\Http\Requests\ItemRequest;
-use App\Http\Controllers\Controller;
 
-class ItemController extends Controller
+class CgyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,14 +18,24 @@ class ItemController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ItemRequest $request)
+    public function store(Request $request)
     {
-        return 'ok';
+        //
     }
 
     /**
@@ -35,7 +44,18 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Cgy $cgy)
+    {
+        return $cgy;
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
         //
     }
@@ -62,5 +82,4 @@ class ItemController extends Controller
     {
         //
     }
-
 }

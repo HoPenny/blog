@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ArticleRequest;
+use App\Models\Article;
+use App\Models\Cgy;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use index;
 
 class ArticleController extends Controller
 {
@@ -14,7 +17,13 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        // $artible = Article::all();
+        // $artible = Article::select('sort')->where('id', '>', 5)->sum('sort');
+        $date = Carbon::createFromFormat('Y-m-d h:i:s', '2022-12-14 00:00:00');
+        $artible = Article::where('enabled_at', '>', $date)->get();
+
+        return $artible;
+
     }
 
     /**
@@ -36,8 +45,11 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ArticleRequest $request)
+    // public function store(ArticleRequest $request)
+    public function store(Request $request)
     {
+        // dd($request);
+
         if ($request->hasFile('pic')) {
             $file = $request->file('pic'); //取得upload檔案
             if ($file->isValid()) { //判斷檔案室否有
@@ -46,9 +58,23 @@ class ArticleController extends Controller
                 $savepath = $file->storeAs('pic', $filename); //預設路徑在storage/app下
             }
         }
-        return 'ok';
 
-        // return $request->all();
+        $article = new Article();
+
+        $article->subject = $request->input('subject');
+        $article->content = $request->input('content');
+        $article->cgy_id = $request->input('cgy_id');
+        $article->enabled = $request->input('enabled');
+        $dt = new Carbon($request->enabled_at);
+        $article->enabled_at = $dt;
+        $article->sort = $request->input('sort');
+        $article->pic = $filename;
+
+        $article->save();
+
+        // return 'ok';
+
+        return redirect(url('/articles'));
 
     }
 
@@ -60,7 +86,15 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+        // $artible = Article::find($id);
+        // $artible = Article::findOrFail($id);
+        // $artible = Article::findOrFail([1, 2]);
+        // $artible = Article::where('id', 1)->first();
+        //$artible = Article::where('enabled', true)->orderBy('id', 'desc')->get();
+        //$artible = Article::whereBetween('id', [1, 5])->orderBy('id', 'desc')->get();
+        $artible = Article::whereIn('id', $id)->orderBy('id', 'desc')->get();
+
+        return $artible;
     }
 
     /**
@@ -92,8 +126,10 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Cgy $cgy)
     {
-        //
+        $cgy->delete();
+        // Cgy::destroy($cgy->id);
+
     }
 }

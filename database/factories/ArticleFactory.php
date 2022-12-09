@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,9 +18,11 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return ['subject' => $this->faker->name(),
-            'content' => $this->faker->company(),
-            'cgy_id' => $this->faker->randomDigitNot(0),
+            'content' => $this->faker->sentence(),
+            'cgy_id' => $this->faker->numberBetween(1, 10),
             'enabled' => $this->faker->randomElement([true, false]),
-            'pic' => 'storage\app\pic\1669795015.jpg'];
+            'sort' => $this->faker->numberBetween(0, 20),
+            'enabled_at' => Carbon::createFromFormat('Y-m-d', $this->faker->date)->now()->addDays(rand(1, 20)),
+            'pic' => $this->faker->imageUrl(360, 360, 'animals', true, 'cats')];
     }
 }
