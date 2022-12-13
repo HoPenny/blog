@@ -114,13 +114,22 @@ class PostController extends Controller
             // $post->title = $request->title;
             // $post->content = $request->content;
             // $post->save();
-            $input = $request->only(['title', 'pic', 'status', 'content', 'sort']);
+
+            $input = $request->only(['title', 'pic', 'status', 'content', 'sort', 'enabled']);
+            // return $request;
+
+            if ($input['enabled'] == '1') {
+                $input['enabled'] = true;
+            } else {
+                $input['enabled'] = false;
+            }
+
             $post->update($input);
 
         } catch (Throwable $e) {
             //更新失敗
             $data = ['post' => $post];
-            return $this->makeJson(0, null, '更新文章失敗');
+            return $this->makeJson(0, null, '更新文章失敗'); //json_encode($e));
         }
 
         $data = ['post' => $post];

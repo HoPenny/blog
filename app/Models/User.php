@@ -7,9 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
+
+// }
+// class User extends Authenticatable
+// {
     use HasApiTokens, HasFactory, Notifiable;
     public function tasks()
     {
@@ -36,12 +41,25 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    use Notifiable;
+
     /**
-     * The attributes that should be cast.
+     * 取得 JWT 辨識字串
      *
-     * @var array<string, string>
+     * @return mixed
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * 回傳鍵值對陣列，內容包含被加入 JWT 的自定義 Payload
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 }

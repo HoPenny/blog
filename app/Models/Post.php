@@ -9,5 +9,6 @@ class Post extends Model
 {
     use HasFactory;
     protected $dates = ['enabled_at'];
-    protected $fillable = ['title', 'content', 'status'];
+
+    protected $fillable = ['title', 'pic', 'sort', 'content', 'status', 'enabled'];
 }
