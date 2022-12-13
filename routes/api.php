@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::get('posts', 'App\Http\Controllers\Api\PostController@show')->middleware('auth');
 // Route::apiResource('posts', 'App\Http\Controllers\Api\PostController')->middleware('auth');
 
-// Route::apiResource('posts', 'App\Http\Controllers\Api\PostController'); //自動生成對應5個function
+Route::apiResource('posts', 'App\Http\Controllers\Api\PostController'); //自動生成對應5個function
 Route::apiResource('photos', 'App\Http\Controllers\Api\PhotoController');
 
 // Route::apiResources([

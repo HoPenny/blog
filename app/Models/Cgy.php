@@ -9,5 +9,10 @@ class Cgy extends Model
 {
     use HasFactory;
     protected $dates = ['enabled_at'];
-    protected $fillable = ['title', 'enabled', 'enabled_at', 'sort'];
+    protected $fillable = ['cgy_id', 'title', 'desc', 'salary', 'enabled'];
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
+
 }

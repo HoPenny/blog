@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
+        Schema::create('article_tag', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 50);
-            $table->string('url', 255)->nillable();
-            $table->integer('sort')->deault(0);
+            $table->dropForeign('atricle')->constrained();
+            $table->dropForeign('tag_id')->constrained();
             $table->timestamps();
         });
     }
@@ -29,6 +28,11 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::table('article_tag', function (Blueprint $table) {
+            $table->dropForeign('atricle');
+            $table->dropForeign('tag_id');
+        });
+
+        Schema::dropIfExists('article_tag');
     }
 };

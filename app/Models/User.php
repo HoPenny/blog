@@ -11,7 +11,10 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    public function tasks()
+    {
+        return $this->belongsToMany(Task::class); //屬於誰的關聯,設Cgy屬於Article的關聯
+    }
     /**
      * The attributes that are mass assignable.
      *

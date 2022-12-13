@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('article_tag', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('tag_id')->unsigned();
-            $table->bigInteger('atricle')->unsigned();
+            $table->string('title', 50);
+            $table->string('pic', 255)->nullable();
+            $table->integer('sort')->default(0);
+            $table->string('content');
+            $table->string('status', 10)->deault('draft');
+            $table->boolean('enabled')->default(true);
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('article_tag');
+        Schema::dropIfExists('posts');
     }
 };

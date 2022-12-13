@@ -18,6 +18,10 @@ class DatabaseSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
         $this->call(CgySeeder::class);
         $this->call(ArticleSeeder::class);
+        $this->call(TagSeeder::class);
+        // $this->call(ArticleTagSeeder::class);
+        $this->call(PostSeeder::class);
+
         DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
 
         // \App\Models\User::factory(10)->create();

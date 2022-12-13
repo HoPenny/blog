@@ -1,14 +1,13 @@
 <?php
 
 namespace Database\Factories;
-
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
+
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class CgyFactory extends Factory
+class TaskFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,6 +16,11 @@ class CgyFactory extends Factory
      */
     public function definition()
     {
-        return ['subject' => $this->faker->sentence, 'enabled' => $this->faker->randomElement([true, false]), 'enabled_at' => Carbon::createFromFormat('Y-m-d', $this->faker->date)->now()->addDays(rand(1, 20)), 'sort' => $this->faker->randomElement([0, 1, 2, 3, 4, 5])];
+
+        return ['cgy_id' => $this->faker->numberBetween(1, 10),
+            'title' => $this->faker->sentence,
+            'desc' => $this->faker->sentence,
+            'salary' => $this->faker->numberBetween(40000, 80000),
+            'enabled' => $this->faker->numberBetween(1, 10)];
     }
 }

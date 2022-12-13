@@ -53,7 +53,7 @@ Route::get('/nav1', 'App\Http\Controllers\HomeworkController@navbar');
 
 Route::get('/nav2', 'App\Http\Controllers\NavController@nav');
 
-Route::resource('/posts', 'App\Http\Controllers\PostController');
+// Route::resource('/posts', 'App\Http\Controllers\PostController');
 Route::resource('/articles', 'App\Http\Controllers\ArticleController');
 
 //  Route::post('/posts', 'App\Http\Controllers\Api\PostController@store');
@@ -110,4 +110,32 @@ Route::get('/changecgy', function () {
 Route::get('/delcgy/{cgy}', function (Cgy $cgy) { //測試,真正的寫在controller
     // $cgy->delete();
     Cgy::destroy($cgy->id);
+});
+
+//關聯練習
+Route::get('/relation', function () {
+    // $article = Article::find(1);
+    // dd($article);
+    // $cgy = Cgy::find(7); //
+    // $cgy = Cgy::find(7)->cygies;
+    // dd($cgy->articles);
+    $tag = Tag::find(3);
+    dd($tag->aticles);
+
+});
+
+Route::get('/changerelation', function () {
+    // $article = Article::find(1);
+    // $article->cgy_id = 5; //類似方式直接改變欄位值
+    //// $cgy_4 = Cgy::find(1);
+    //// $article->cgy()->associate($cgy_4); //變更所屬對象
+    //// $article->save();
+    $cgy = Cgy::find(7);
+    $article = Article::where('cgy_id', 5)->first();
+    $cgy->articles()->save($article);
+
+    // dd($cgy_4);
+    // dd($article);
+    dd(Article::find($article->id));
+
 });
